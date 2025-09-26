@@ -1,9 +1,30 @@
 import camion.*
+import cosas.*
 
-describe "group of test for camion" {
 
-  test "first test" {
-    assert.that(true)
+describe "test del camion" {
+
+  method initialize(){
+    camion.cargar(knightRider)
+    camion.cargar(arena)
+    arena.peso(200)
+    ladrillos.cantidad(10)
+    camion.cargar(ladrillos)
   }
+
+
+  test "el camion tiene un eso total de 1720kg" {
+    assert.equals(1720,camion.pesoTotal())
+  }
+
+  test "el camion no está excedido de peso" {
+    assert.notThat(camion.pesoExcedido())
+  }
+
+  test "el camion puede circular" {
+    assert.that(camion.puedeCircular(10))
+  }
+
+    
 
 }
